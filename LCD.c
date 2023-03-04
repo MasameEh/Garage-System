@@ -4,7 +4,6 @@
  *  Author: Mohamed Sameh
  */ 
 #include "LCD.h"
-#include "dio.h"
 #define F_CPU 1000000UL
 #include <util/delay.h>
 

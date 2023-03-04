@@ -9,6 +9,7 @@
 #ifndef LCD_H_
 #define LCD_H_
 #include "LCD_config.h"
+#include "dio.h"
 #include <stdint.h>
 #define EIGHT_BITS 0x38
 #define CLEAR_SCREEN 0x01
@@ -27,9 +28,6 @@ void LCD_send_int(int64_t number);
 
 void LCD_clearscreen();
 void LCD_move_curser(uint8_t x, uint8_t y);
-
-
-
 
 
 
