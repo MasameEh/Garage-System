@@ -8,5 +8,5 @@ Garage system based on AVR Micro-Controller(ATmega32) using two PIR sensors and 
 
 There is a Proteus 8.11 project file (garage.pdsprj).
 * Build .hex file.
-* Open Calculator.pdsprj with Proteus 8.11 or above.
+* Open garage.pdsprj with Proteus 8.11 or above.
 * Run Simulation.
