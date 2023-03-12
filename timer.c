@@ -31,6 +31,8 @@ void timer0_CTC_init()
 {
 	//select CTC mode
 	SET_BIT(TCCR0,WGM01);
+	//load a value in OCR0 
+	OCR0=78;
 	//PRESCALER -> 1024
 	SET_BIT(TCCR0, CS00);
 	SET_BIT(TCCR0, CS02);
