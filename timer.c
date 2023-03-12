@@ -39,7 +39,7 @@ void timer0_CTC_init()
 	//
 	//enable interrupt
 	sei();
-	SET_BIT(TIMSK,TOIE0);
+	SET_BIT(TIMSK,OCIE0);
 }
 
 void timer0_deinit()
