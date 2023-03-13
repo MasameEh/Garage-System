@@ -147,7 +147,7 @@ void dio_set_port_direction(dio_t port, dio_direction_t direction)
 
 
 
-void dio_write_port(dio_t port, uint8_t value)
+void dio_write_port(dio_t port, dio_level_t value)
 {
 	switch (port)
 	{
