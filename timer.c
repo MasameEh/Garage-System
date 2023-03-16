@@ -10,10 +10,10 @@
 
 
 #define PULSE_PORT_A DIO_PORTD
-#define PULSE1_PIN_A DIO_PIN5 
+#define PULSE_PIN_A DIO_PIN5 
 
 #define PULSE_PORT_B DIO_PORTD
-#define PULSE1_PIN_B DIO_PIN4
+#define PULSE_PIN_B DIO_PIN4
 
 void timer0_normalmode_init()
 {
@@ -56,7 +56,7 @@ void timer0_deinit()
 void timer1_fastPWM_A(double v)
 {
 	//set OC1A as output pin 
-	dio_set_pin_direction(PULSE_PORT_A,PULSE1_PIN_A,DIO_DIRECTION_OUTPUT);
+	dio_set_pin_direction(PULSE_PORT_A,PULSE_PIN_A,DIO_DIRECTION_OUTPUT);
 	//select fastPWM mode
 	SET_BIT(TCCR1A,WGM11);
 	SET_BIT(TCCR1B,WGM12);
@@ -73,7 +73,7 @@ void timer1_fastPWM_A(double v)
 void timer1_fastPWM_B(double v)
 {
 	//set OC1B as output pin
-	dio_set_pin_direction(PULSE_PORT_B,PULSE1_PIN_B,DIO_DIRECTION_OUTPUT);
+	dio_set_pin_direction(PULSE_PORT_B,PULSE_PIN_B,DIO_DIRECTION_OUTPUT);
 	//select fastPWM mode
 	SET_BIT(TCCR1A,WGM11);
 	SET_BIT(TCCR1B,WGM12);
