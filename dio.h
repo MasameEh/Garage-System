@@ -16,10 +16,11 @@
 
 /* Section : Includes */
 #include <avr/io.h>
-#include <stdint.h>
+#define F_CPU 1000000UL
+#include <util/delay.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include "Bit_Math.h"
+#include "Platform_Types.h"
 
 /* Section : Macro Declarations */
 

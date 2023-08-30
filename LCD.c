@@ -4,8 +4,6 @@
  *  Author: Mohamed Sameh
  */ 
 #include "LCD.h"
-#define F_CPU 1000000UL
-#include <util/delay.h>
 
 void LCD_init(void){
 	
@@ -76,9 +74,9 @@ void LCD_clearscreen()
  * @param x: specifies the x axis range: 0->15
  * @param y: specifies the line range: 0,1
  */
-void LCD_move_curser(uint8_t x, uint8_t y)
+void LCD_move_curser(uint8 x, uint8 y)
 {
-	uint8_t address = x;
+	uint8 address = x;
 	if(y == 1)
 	{
 		address += 0x40;
