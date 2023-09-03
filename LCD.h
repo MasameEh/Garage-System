@@ -14,12 +14,12 @@
 #include "dio.h"
 
 /* Section : Macro Declarations */
-#define EIGHT_BITS							0x38
-#define CLEAR_SCREEN						0x01
-#define CURSOR_ON_DISPLAY_ON				0x0e
-#define CURSOR_OFF_DISPLAY_ON				0x0c
-#define CURSOR_ON_DISPLAY_ON_BLINK_ON		0x0d
-#define ENTRY_MODE							0x06
+#define EIGHT_BITS							            0x38
+#define CLEAR_SCREEN						            0x01
+#define CURSOR_ON_DISPLAY_ON				        0x0e
+#define CURSOR_OFF_DISPLAY_ON				        0x0c
+#define CURSOR_ON_DISPLAY_ON_BLINK_ON		    0x0d
+#define ENTRY_MODE							            0x06
 #define DISPLAY_SHIFT_RIGHT                 0x1C
 #define DISPLAY_SHIFT_LEFT                  0x18
 #define CGRAM_START                         0x40
