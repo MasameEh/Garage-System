@@ -2,9 +2,14 @@
  * LCD.c
  *
  *  Author: Mohamed Sameh
+ * Description:
+ * Source file for controlling a character LCD using a 8-bit interface.
  */ 
 #include "LCD.h"
 
+/**
+ * @brief Initializes the character LCD.
+ */
 void LCD_init(void){
 	
 	_delay_ms(30);
@@ -24,6 +29,9 @@ void LCD_init(void){
 	_delay_ms(1);
 }
 
+/**
+ * @brief Generates a falling edge on the LCD enable (EN) pin.
+ */
 void LCD_send_falling_edge()
 {
 	dio_write_pin(LCD_EN_PORT, LCD_EN_PIN, DIO_LEVEL_HIGH);
@@ -32,7 +40,12 @@ void LCD_send_falling_edge()
 	_delay_ms(3);
 }
 
-void LCD_send_cmd(char cmd)
+/**
+ * @brief Sends a command to the character LCD.
+ * 
+ * @param cmd The command to be sent.
+ */
+void LCD_send_cmd(uint8 cmd)
 {
 	//read/write -> always write
 	//RS-> CMD:0
@@ -42,7 +55,12 @@ void LCD_send_cmd(char cmd)
 	LCD_send_falling_edge();
 }
 
-void LCD_send_char(char data)
+/**
+ * @brief Sends a character to be displayed on the character LCD.
+ * 
+ * @param data The character to be displayed.
+ */
+void LCD_send_char(uint8 data)
 {
 	//RS-> DATA:1
 	dio_write_pin(LCD_RS_PORT, LCD_RS_PIN, DIO_LEVEL_HIGH);
@@ -51,7 +69,12 @@ void LCD_send_char(char data)
 
 }
 
-void LCD_send_string(char *data)
+/**
+ * @brief Sends a string to be displayed on the character LCD.
+ * 
+ * @param data The string to be displayed.
+ */
+void LCD_send_string(uint8 *data)
 {
 	while((*data) != '\0')
 	{
@@ -60,7 +83,9 @@ void LCD_send_string(char *data)
 	}
 }
 
-
+/**
+ * @brief Clears the screen of the character LCD.
+ */
 void LCD_clearscreen()
 {
 	LCD_send_cmd(CLEAR_SCREEN);
@@ -69,12 +94,12 @@ void LCD_clearscreen()
 
 
 /**
- * @brief 
+ * @brief Moves the cursor to the specified position on the character LCD.
  * 
- * @param x: specifies the x axis range: 0->15
- * @param y: specifies the line range: 0,1
+ * @param x The x-axis position (0 to 15).
+ * @param y The line number (0 or 1).
  */
-void LCD_move_curser(uint8 x, uint8 y)
+void LCD_move_cursor(uint8 x, uint8 y)
 {
 	uint8 address = x;
 	if(y == 1)
