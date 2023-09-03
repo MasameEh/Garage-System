@@ -1,10 +1,26 @@
+/* 
+ * File:   Bit_Math.h
+ *
+ * Author: Mohamed Sameh
+ *
+ */
+/* Section : Includes */
+
+/* Section : Macro Declarations */
+#define SET_BIT(reg,bit)    reg|=(1<<bit)
+#define CLR_BIT(reg,bit)    reg&=(~(1<<bit))
+#define TOG_BIT(reg,bit)    reg^=(1<<bit)
+#define READ_BIT(reg,bit)    ((reg&(1<<bit))>>bit)
+#define IS_BIT_SET(reg,bit)  (reg&(1<<bit))>>bit
+#define IS_BIT_CLR(reg,bit)  !((reg&(1<<bit))>>bit)
+
+/* Section : Macro Functions Declarations */
 
 
-#define REGISTER_SIZE 8
-#define SET_BIT(REG,BIT_POS)    (REG|=(1<<BIT_POS))
-#define CLR_BIT(REG,BIT_POS)    (REG&=(~(1<<BIT_POS)))
-#define TOG_BIT(REG,BIT_POS)    (REG^=(1<<BIT_POS))
-#define READ_BIT(REG,BIT_POS)    ((REG&(1<<BIT_POS))>>BIT_POS)
-#define IS_BIT_SET(REG,BIT_POS)  ((REG&(1<<BIT_POS))>>BIT_POS)
-#define IS_BIT_CLR(REG,BIT_POS)  (!((REG&(1<<BIT_POS))>>BIT_POS))
+/* Section : Data Types Declarations  */
+
+
+/* Section : Functions Declarations */
+
+
 
