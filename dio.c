@@ -5,9 +5,9 @@
  *
  * Description:
  * This file contains the implementation of functions for controlling
- * Digital Input/Output (DIO) pins and ports on a microcontroller.
- * It provides functions to set pin direction, write to pins/ports,
- * read pin states, and manage GPIO configurations.
+ * Digital Input/Output (DIO) pins and ports on a microcontroller
+ * It provides functions to set pin direction, write to pins or ports,
+ * read pin states and manage GPIO configurations.
  *
  */
 
@@ -24,36 +24,34 @@ void dio_set_pin_direction(dio_t port, dio_pin_t pin, dio_direction_t direction)
 {
 	volatile uint8 *ddr_register = NULL;
 
-    switch (port)
-    {
-    case DIO_PORTA:
-        ddr_register = &DDRA;
-        break;
-    case DIO_PORTB:
-        ddr_register = &DDRB;
-        break;
-    case DIO_PORTC:
-        ddr_register = &DDRC;
-        break;
-    case DIO_PORTD:
-        ddr_register = &DDRD;
-        break;
-    default:
-        // Handle error
-        break;
-    }
+    	switch (port)
+    	{
+    	case DIO_PORTA:
+        	ddr_register = &DDRA;
+        	break;
+   	case DIO_PORTB:
+        	ddr_register = &DDRB;
+        	break;
+    	case DIO_PORTC:
+        	ddr_register = &DDRC;
+        	break;
+    	case DIO_PORTD:
+        	ddr_register = &DDRD;
+        	break;
+    	default:
+        	break;
+    	}
 
-    if (direction == DIO_DIRECTION_INPUT)
-    {
-        CLR_BIT(*ddr_register, pin);
-    }
-    else if (direction == DIO_DIRECTION_OUTPUT)
-    {
+	if (direction == DIO_DIRECTION_INPUT)
+   	{
+        	CLR_BIT(*ddr_register, pin);
+    	}
+    	else if (direction == DIO_DIRECTION_OUTPUT)
+    	{
 		CLR_BIT(*ddr_register, pin);
-        SET_BIT(*ddr_register, pin);
-    }
-    else
-    {}
+        	SET_BIT(*ddr_register, pin);
+    	}
+   	 else{}
 }
 
 /**
@@ -134,7 +132,7 @@ dio_level_t dio_get_pin(dio_t port, dio_pin_t pin)
 		case DIO_PORTD:
 			return (dio_level_t)((PIND >> pin) & 0x01);
 		default:
-			return DIO_LEVEL_LOW;  // Or return a default value of your choice
+			return DIO_LEVEL_LOW; 
 	}
 }
 
@@ -170,7 +168,7 @@ void dio_set_port_direction(dio_t port, dio_direction_t direction)
 	else
 	{
 		switch (port)
-			{
+		{
 			case DIO_PORTA:
 				DDRA = 0xff;   
 				break;
@@ -186,7 +184,7 @@ void dio_set_port_direction(dio_t port, dio_direction_t direction)
 			default:
 				//report error
 				break;
-			}
+		}
 	}
 }
 
